@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Cat GPT (Generative Purring Terror)</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<header>
+		<h2 style="text-align: center;">Cat GPT (Generative Purring Terror)</h2>
+	</header>
+	<main>
+		<div class="container">
+			<div class="chat-body">
+				<ul class="message-list"></ul>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<input class="message-input" type="text" id="message-input" placeholder="Type your message here">
+		<button class="send-button" id="send-button">Send</button>
+	</footer>
+	<script src="script.js"></script>
+	<script>
+	window.onload = function() {
+		const header = document.querySelector('header');
+		const main = document.querySelector('main');
+		const footer = document.querySelector('footer');
+		main.style.paddingTop = header.offsetHeight + 'px';
+		main.style.Height = `calc(100vh - (${header.offsetHeight}px + ${footer.offsetHeight}px))`;
+		main.style.overflowY = 'auto';
+	};
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+body {
+	margin: 0px;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgb(69, 124, 168);
+	padding: 0px;
+}
+
+main {
+	overflow: auto; /* Optionally you can also use overflow: scroll; */
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.send-button {
+	background-color: #4c6faf;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.send-button:hover {
+	background-color: #45a049;
+}
+
+.message-input {
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	width: 90%;
+}
+
+.message-input:focus {
+	border: 2px solid #555;
+}
+
+.message {
+	list-style: none;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+.sent {
+	background-color: lightblue;
+}
+
+.received {
+	background-color: lightgreen;
+}
