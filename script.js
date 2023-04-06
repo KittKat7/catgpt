@@ -28,31 +28,52 @@ function gotMessage() {
 	}
 }
 
+// This function creates a new message element with given type and text
 function addMessage(type, text) {
+	// Determine the class of the message based on its type
 	const messageClass = type === 'sent' ? 'sent' : 'received';
+	
+	// Create a new li element for the message and add the message class
 	const message = document.createElement('li');
 	message.classList.add('message', messageClass);
+	
+	// Create a new div element for the message content and add the message-content class
 	const messageContent = document.createElement('div');
 	messageContent.classList.add('message-content');
+	
+	// Append the message content to the message element
 	message.appendChild(messageContent);
-	//const chatDiv = document.querySelector('.chat-body');
+	
+	// Append the message element to the message list
 	messageList.appendChild(message);
 
+	// Initialize the index for the addNextWord function
 	let index = 0;
+	// Define a function to add the next word of the text to the message content
 	let addNextWord = function() {
+		// Check if there are more words to add
 		if (index < text.length) {
-		messageContent.innerText += text[index] + ' ';
-		index++;
-		let timeMod = Math.floor(Math.random() * 5)
-		setTimeout(addNextWord, 100 * timeMod);
+			// Add the next word to the message content and increment the index
+			messageContent.innerText += text[index] + ' ';
+			index++;
+			
+			// Randomly generate a time modifier and use it to delay the next call to addNextWord
+			let timeMod = Math.floor(Math.random() * 5);
+			setTimeout(addNextWord, 100 * timeMod);
 		}
+		window.scrollTo(0, document.body.scrollHeight);
 	}
+	
+	// If the message type is 'received', add words to the message content one at a time
 	if (type == 'received') {
 		addNextWord();
 	} else {
+		// If the message type is 'sent', add the entire text to the message content at once
 		messageContent.innerText = text;
 	}
+	window.scrollTo(0, document.body.scrollHeight);
 }
+
 
 function tokenize(text) {
 	let words = text.split(' ');
